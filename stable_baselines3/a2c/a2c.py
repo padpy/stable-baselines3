@@ -175,6 +175,7 @@ class A2C(OnPolicyAlgorithm):
         self.logger.record("train/entropy_loss", entropy_loss.item())
         self.logger.record("train/policy_loss", policy_loss.item())
         self.logger.record("train/value_loss", value_loss.item())
+        # self.logger.record("train/success_rate", th.mean(rollout_data.action_log_prob - log_prob).item())
         if hasattr(self.policy, "log_std"):
             self.logger.record("train/std", th.exp(self.policy.log_std).mean().item())
 
